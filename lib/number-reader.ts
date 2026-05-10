@@ -197,11 +197,10 @@ export function expressionToWords(
   }[language];
 
   return value
-    .replace(/\d[\d,]*(?:\.\d*)?|\.\d+/g, (token) => numericTokenToWords(token, language, impossibleMessage))
-    .replace(/\+/g, operators["+"])
-    .replace(/-/g, operators["-"])
-    .replace(/×/g, operators["×"])
-    .replace(/÷/g, operators["÷"])
+    .replace(/\d[\d,]*(?:\.\d*)?|\.\d+|[+\-×÷]/g, (token) => {
+      if (token in operators) return operators[token as keyof typeof operators];
+      return numericTokenToWords(token, language, impossibleMessage);
+    })
     .replace(/\s+/g, " ")
     .trim();
 }

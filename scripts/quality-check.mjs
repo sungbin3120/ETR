@@ -71,6 +71,7 @@ assert.equal(formatExpressionResult(evaluated), "25");
 assert.equal(formatExpressionInput("557154246248"), "557,154,246,248");
 assert.equal(expressionToWords("5×5", "ko", "", ""), "오 곱하기 오");
 assert.equal(expressionToWords("5×5", "en", "", ""), "five times five");
+assert.equal(expressionToWords("58,949", "en", "", ""), "fifty-eight thousand nine hundred forty-nine");
 assert.equal(expressionToWords("5×5", "ja", "", ""), "五 掛ける 五");
 
 assert.throws(
@@ -82,4 +83,4 @@ assert.throws(
   /Unsupported expression/
 );
 
-console.log(`Quality checks passed: ${numberCases.length + 6} cases`);
+console.log(`Quality checks passed: ${numberCases.length + 7} cases`);
