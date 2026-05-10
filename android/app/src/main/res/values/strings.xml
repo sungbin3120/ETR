@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">Number Reader Calculator</string>
+    <string name="title_activity_main">Number Reader Calculator</string>
+    <string name="package_name">com.sungbinstudio.numberreadercalculator</string>
+    <string name="custom_url_scheme">com.sungbinstudio.numberreadercalculator</string>
+</resources>

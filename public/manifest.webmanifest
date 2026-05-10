@@ -1,0 +1,21 @@
+{
+  "name": "Number Reader Calculator",
+  "short_name": "Number Reader",
+  "description": "Calculate numbers and read the result in Korean, English, or Japanese.",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#f7f7f4",
+  "theme_color": "#0f8b8d",
+  "lang": "ko",
+  "categories": ["education", "utilities"],
+  "icons": [
+    {
+      "src": "/app-icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "maskable"
+    }
+  ]
+}

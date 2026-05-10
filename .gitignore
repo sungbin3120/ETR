@@ -1,0 +1,10 @@
+.next
+node_modules
+out
+dist
+android/app/build
+android/.gradle
+android/build
+*.log
+.env*
+tsconfig.tsbuildinfo

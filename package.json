@@ -1,0 +1,30 @@
+{
+  "name": "korean-number-calculator-app",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "build:android": "npm run build && npx cap sync android",
+    "android:debug": "cd android && gradlew.bat assembleDebug",
+    "android:bundle": "cd android && gradlew.bat bundleRelease",
+    "open:android": "npx cap open android",
+    "start": "next start",
+    "quality:test": "node scripts/quality-check.mjs",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@capacitor/android": "^8.3.3",
+    "@capacitor/cli": "^8.3.3",
+    "@capacitor/core": "^8.3.3",
+    "next": "^15.1.0",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0"
+  },
+  "devDependencies": {
+    "@types/node": "^22.10.2",
+    "@types/react": "^19.0.1",
+    "@types/react-dom": "^19.0.2",
+    "typescript": "^5.7.2"
+  }
+}
