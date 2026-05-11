@@ -13,6 +13,7 @@ import {
 } from "@/lib/number-reader";
 
 const buttons = ["7", "8", "9", "÷", "4", "5", "6", "×", "1", "2", "3", "-", "0", "00", ".", "+"];
+const operatorButtons = new Set(["÷", "×", "-", "+"]);
 const languageStorageKey = "number-reader-calculator-language";
 
 const copy = {
@@ -137,7 +138,12 @@ export function CalculatorApp() {
       <header className="app-bar">
         <h1>{t.appName}</h1>
         <div className="app-actions">
-          <button type="button" onClick={() => setHistoryOpen((value) => !value)} aria-expanded={historyOpen}>
+          <button
+            type="button"
+            onClick={() => setHistoryOpen((value) => !value)}
+            aria-expanded={historyOpen}
+            className={historyOpen ? "active" : ""}
+          >
             {t.history}
           </button>
           <div className="language-switcher" aria-label="Language">
@@ -212,7 +218,12 @@ export function CalculatorApp() {
 
       <section className="keypad" aria-label="Calculator keypad">
         {buttons.map((button) => (
-          <button key={button} type="button" onClick={() => append(button)}>
+          <button
+            key={button}
+            type="button"
+            onClick={() => append(button)}
+            className={operatorButtons.has(button) ? "operator-key" : ""}
+          >
             {button}
           </button>
         ))}
