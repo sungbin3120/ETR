@@ -8,3 +8,9 @@ android/build
 *.log
 .env*
 tsconfig.tsbuildinfo
+
+# Release signing secrets
+keystores/
+*.jks
+*.keystore
+android/key.properties
