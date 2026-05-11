@@ -9,6 +9,8 @@ This app is configured as a Capacitor Android project.
 - Web build directory: `out`
 - Android project: `android/`
 - Synced web assets: `android/app/src/main/assets/public`
+- Play Store icon: `public/play-store-icon.png` (`512px x 512px`, 32-bit PNG)
+- Android launcher icon resource: `android/app/src/main/res/drawable/app_icon.png`
 
 ## Commands
 
