@@ -143,8 +143,8 @@ button {
 
 .display {
   min-height: 0;
-  display: grid;
-  grid-template-rows: auto minmax(50px, auto) auto auto minmax(0, 1fr) auto;
+  display: flex;
+  flex-direction: column;
   border: 1px solid var(--line);
   border-radius: 8px;
   background:
@@ -167,43 +167,46 @@ button {
 .display input {
   width: 100%;
   min-width: 0;
+  flex-shrink: 0;
   border: 0;
   background: transparent;
   color: var(--text);
   outline: none;
   text-align: right;
-  font-size: clamp(38px, 11vw, 60px);
   font-weight: 760;
   letter-spacing: 0;
 }
 
 .display-divider {
+  flex-shrink: 0;
   height: 1px;
-  margin: 12px 0 15px;
+  margin: 12px 0 12px;
   background: linear-gradient(90deg, transparent, var(--line-strong), transparent);
 }
 
 .numeric-result {
+  flex-shrink: 0;
   margin: 0;
   overflow: hidden;
   color: var(--muted);
   text-align: right;
-  font-size: clamp(18px, 5vw, 24px);
+  font-size: clamp(15px, 4.2vw, 20px);
+  line-height: 1;
   font-weight: 720;
   text-overflow: ellipsis;
   white-space: nowrap;
 }
 
 .spoken-result {
+  flex: 1;
   min-height: 0;
-  margin: 12px 0 0;
+  margin: 9px 0 0;
   overflow: hidden;
   color: var(--accent-strong);
   text-align: right;
   white-space: pre-line;
-  font-size: clamp(20px, 4.8vw, 28px);
   font-weight: 820;
-  line-height: 1.16;
+  line-height: 1.08;
   text-wrap: balance;
 }
 
@@ -373,8 +376,7 @@ button {
   }
 
   .spoken-result {
-    margin-top: 8px;
-    font-size: clamp(18px, 4.6vw, 25px);
+    margin-top: 7px;
   }
 
   .keypad {

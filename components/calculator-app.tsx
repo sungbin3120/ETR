@@ -67,6 +67,26 @@ type HistoryItem = {
   result: number;
 };
 
+function getExpressionFontSize(value: string) {
+  const length = value.length;
+
+  if (length > 24) return "clamp(1.1rem, 4.8vw, 1.7rem)";
+  if (length > 19) return "clamp(1.25rem, 5.2vw, 1.95rem)";
+  if (length > 15) return "clamp(1.55rem, 6.7vw, 2.45rem)";
+  if (length > 11) return "clamp(2rem, 8.8vw, 3.25rem)";
+  return "clamp(2.5rem, 12vw, 4rem)";
+}
+
+function getSpokenFontSize(value: string) {
+  const compactLength = value.replace(/\s/g, "").length;
+
+  if (compactLength > 80) return "clamp(0.78rem, 2.9vw, 1rem)";
+  if (compactLength > 56) return "clamp(0.86rem, 3.2vw, 1.12rem)";
+  if (compactLength > 34) return "clamp(0.95rem, 3.6vw, 1.28rem)";
+  if (compactLength > 22) return "clamp(1.05rem, 4vw, 1.42rem)";
+  return "clamp(1.18rem, 4.6vw, 1.62rem)";
+}
+
 export function CalculatorApp() {
   const [language, setLanguage] = useState<Language>("ko");
   const [expression, setExpression] = useState("0");
@@ -96,6 +116,8 @@ export function CalculatorApp() {
 
     return numberToWords(result, language, t.impossible);
   }, [expression, language, result, t.impossible, t.placeholder]);
+  const expressionFontSize = getExpressionFontSize(expression);
+  const spokenFontSize = getSpokenFontSize(spokenResult);
 
   function append(value: string) {
     setExpression((current) => formatExpressionInput(`${current}${value}`));
@@ -209,10 +231,16 @@ export function CalculatorApp() {
           }}
           inputMode="decimal"
           aria-label={t.expression}
+          style={{ fontSize: expressionFontSize }}
         />
         <div className="display-divider" />
         <p className="numeric-result">{error ? t.result : result === null ? "0" : formatNumber(result)}</p>
-        <p className={`spoken-result ${language === "ja" ? "break-all" : "break-keep"}`}>{spokenResult}</p>
+        <p
+          className={`spoken-result ${language === "ja" ? "break-all" : "break-keep"}`}
+          style={{ fontSize: spokenFontSize }}
+        >
+          {spokenResult}
+        </p>
         {error ? <p className="error-message">{error}</p> : null}
       </section>
 
